@@ -1,24 +1,20 @@
 <div class="blog-grid">
   <div class="blog-grid-img position-relative">
-    <img alt="img" src="https://www.bootdey.com/image/480x480/0c0c0c/ffffff" />
+    <img alt="img" [src]="singlePost?.img" />
   </div>
   <div class="blog-grid-text p-4">
     <h3 class="h5 mb-3">
-      <a href="#!">Growth your business strategy</a>
+      <a (click)="goToSingle(singlePost)">{{ singlePost?.title }}</a>
     </h3>
     <p class="display-30">
-      Exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+      {{ singlePost?.body }}
     </p>
     <div class="meta meta-style2">
       <ul>
         <li>
           <a href="#!"
-            ><i class="fas fa-calendar-alt"></i> 25 Jun,
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-            2022</a
-          >
+            ><i class="fas fa-calendar-alt"></i> {{ singlePost?.date }}
+          </a>
         </li>
         <li>
           <a href="#!"><i class="fas fa-user"></i> User</a>
