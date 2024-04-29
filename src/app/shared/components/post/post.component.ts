@@ -13,14 +13,11 @@ export class PostComponent {
 
   }
 
-  @Input() singlePost!: Post;
+  @Input() singlePost?: Post;
 
 
-  goToSingle(single: Post) {
-
-
-    this.router.navigate(['/post', single.id])
-
+  goToSingle(single?: Post) {
+    this.router.navigate(['/post', single?.id])
   }
 
 }

@@ -8,6 +8,7 @@ import { NavComponent } from './shared/components/nav/nav.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SinglePostComponent } from './features/single-post/single-post.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SinglePostComponent } from './features/single-post/single-post.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     provideClientHydration()

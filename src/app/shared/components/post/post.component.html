@@ -13,7 +13,8 @@
       <ul>
         <li>
           <a href="#!"
-            ><i class="fas fa-calendar-alt"></i> {{ singlePost?.date }}
+            ><i class="fas fa-calendar-alt"></i>
+            {{ singlePost?.date | date : "longDate" }}
           </a>
         </li>
         <li>
