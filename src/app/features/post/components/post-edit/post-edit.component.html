@@ -1,1 +1,67 @@
-<p>post-edit works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <!-- post.component.html -->
+          <div class="blog-grid mb-4">
+            <div class="blog-grid-img position-relative">
+              <img alt="img" [src]="post?.img" />
+            </div>
+            <div class="blog-grid-text p-4">
+              <form
+                class="needs-validation"
+                [formGroup]="postForm"
+                (ngSubmit)="onSubmit()"
+              >
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    [value]="post?.title"
+                    [formControlName]="'title'"
+                    required
+                  />
+                </div>
+                <p
+                  [ngClass]="
+                    postForm.get('title')?.invalid
+                      ? 'needs-validation'
+                      : 'invalid-feedback'
+                  "
+                >
+                  Please provide a title.
+                </p>
+                <div class="form-group">
+                  <label for="body">Body</label>
+                  <textarea
+                    class="form-control"
+                    id="body"
+                    rows="3"
+                    [value]="post?.body"
+                    [formControlName]="'body'"
+                    required
+                  ></textarea>
+                  <div
+                    [ngClass]="
+                      postForm.get('body')?.invalid
+                        ? 'needs-validation'
+                        : 'invalid-feedback'
+                    "
+                  >
+                    Please provide a body.
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Save Changes
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
