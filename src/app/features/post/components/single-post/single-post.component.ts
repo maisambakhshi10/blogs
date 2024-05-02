@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../../../../models/post/post.model';
 import { PostService } from '../../../../core/services/post.service';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ export class SinglePostComponent {
   postId!: number;
   singlePost?: Post;
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
+  constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private router: Router) {
 
     this.activatedRoute.params.subscribe(param => {
       this.postId = +param['id']
@@ -24,11 +24,10 @@ export class SinglePostComponent {
         console.log(this.singlePost)
       });
     })
-
-
-
   }
 
-
+  navigateToEdit(id?: number) {
+    this.router.navigate(['post/edit', id])
+  }
 
 }

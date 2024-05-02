@@ -7,6 +7,7 @@ import { NavComponent } from './shared/components/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PostModule } from './features/post/post.module';
+import { DashboardModule } from './features/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PostModule } from './features/post/post.module';
     PostModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    DashboardModule
   ],
   providers: [
     provideClientHydration()
