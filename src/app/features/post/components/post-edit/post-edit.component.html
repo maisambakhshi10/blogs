@@ -48,10 +48,9 @@
                   <div
                     class="text-danger"
                     [ngClass]="
-                      postForm.get('body')?.invalid &&
-                      postForm.get('body')?.touched
+                      postForm.get('body')?.invalid
                         ? 'needs-validation'
-                        : ''
+                        : 'invalid-feedback'
                     "
                   >
                     Please provide a body.
