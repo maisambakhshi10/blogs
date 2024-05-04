@@ -13,9 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SinglePostComponent,
     PostComponent,
     PostEditComponent,
-    PostsComponent,
-
-  ],
+    PostsComponent],
   imports: [
     CommonModule,
     FormsModule,

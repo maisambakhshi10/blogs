@@ -46,9 +46,10 @@
                   ></textarea>
                   <div
                     [ngClass]="
-                      postForm.get('body')?.invalid
+                      postForm.get('body')?.invalid &&
+                      postForm.get('body')?.touched
                         ? 'needs-validation'
-                        : 'invalid-feedback'
+                        : ''
                     "
                   >
                     Please provide a body.

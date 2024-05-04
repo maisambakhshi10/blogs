@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { Post } from '../../models/post/post.model';
 
 @Injectable({
@@ -39,6 +39,18 @@ export class PostService {
       map(updatedPosts => {
         console.log(updatedPosts)
         return this.http.put<void>('/assets/data.json', updatedPosts);
+      })
+    );
+  }
+
+  deletePost(postId: number): Observable<void> {
+    return this.getPosts().pipe(
+      switchMap(posts => {
+        const filteredPosts = posts.filter(post => post.id !== postId);
+        return this.http.put<void>('/assets/data.json', filteredPosts);
+      }),
+      catchError(error => {
+        return throwError(error);
       })
     );
   }

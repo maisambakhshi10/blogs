@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PostModule } from './features/post/post.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DashboardModule } from './features/dashboard/dashboard.module';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    DashboardModule
+    DashboardModule,
+    NgbModule
   ],
   providers: [
     provideClientHydration()
