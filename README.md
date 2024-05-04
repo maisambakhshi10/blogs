@@ -1,27 +1,37 @@
-# Blog
+# Products
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
-## Development server
+## Steps to run the app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Clone the repo - https://github.com/maisambakhshi10/blogs
+- `cd blogs`
+- `npm i`
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files
 
-## Code scaffolding
+## Dependencies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1.  Angular: A powerful JavaScript framework for building web applications.
+2.  Bootstrap: A utility-first CSS framework for rapid UI development. [Learn more](https://getbootstrap.com/).
 
-## Build
+## Further notes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This app contains the following basic functionalities
 
-## Running unit tests
+- routes
+- observables to retrieve data
+- services
+- modules for posts
+- pipes
+- directives
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Due to the time constraints I kept the functionalities very simple, If I had more time to implement, I would have implemented the followings
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- search bar to search for products
+- filter/sort products using RxJS operations
+- implemented state-management with actions, reducers, effects and selectors.
+- lazy loading for routes
+- implemented SCAM module pattern if it was larger application
+- shared components to re-use across the app
+- smart components for retrieving data and dumb components.
+- micro-frontend architecture for independencies of features
