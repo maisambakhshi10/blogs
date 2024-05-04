@@ -26,6 +26,7 @@
                   />
                 </div>
                 <p
+                  class="text-danger"
                   [ngClass]="
                     postForm.get('title')?.invalid
                       ? 'needs-validation'
@@ -45,6 +46,7 @@
                     required
                   ></textarea>
                   <div
+                    class="text-danger"
                     [ngClass]="
                       postForm.get('body')?.invalid &&
                       postForm.get('body')?.touched
