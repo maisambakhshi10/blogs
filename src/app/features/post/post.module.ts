@@ -5,6 +5,7 @@ import { PostComponent } from '../../shared/components/post/post.component';
 import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateComponent } from './components/create/create.component';
 
 
 
@@ -13,7 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SinglePostComponent,
     PostComponent,
     PostEditComponent,
-    PostsComponent],
+    PostsComponent,
+    CreateComponent
+  ],
+    
   imports: [
     CommonModule,
     FormsModule,

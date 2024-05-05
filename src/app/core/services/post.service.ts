@@ -21,6 +21,12 @@ export class PostService {
     return this.http.get<Post>(`${this.apiUrl}/${id}`);
   }
 
+  createPost(post: Post) {
+    return this.http.post<Post>(`${this.apiUrl}`, post).pipe(
+      catchError(this.handleError)
+    )
+  }
+
 
   submitPostData(post: Post) {
     return this.http.put<Post>(`${this.apiUrl}/${post.id}`, post);

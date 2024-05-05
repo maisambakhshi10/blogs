@@ -1,0 +1,69 @@
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="blog-grid mb-4">
+              <div class="blog-grid-img position-relative">
+                <img alt="img" [src]="" />
+              </div>
+              <div class="blog-grid-text p-4">
+                <form
+                  class="needs-validation"
+                  [formGroup]="postCreateForm"
+                  (ngSubmit)="onSubmit()"
+                >
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="title"
+                      [value]=""
+                      [formControlName]="'title'"
+                      required
+                    />
+                  </div>
+                  <p
+                    class="text-danger"
+                    [ngClass]="
+                    postCreateForm.get('title')?.invalid
+                      ? 'needs-validation'
+                      : 'invalid-feedback'
+                  "
+                  >
+                    Please provide a title.
+                  </p>
+                  <div class="form-group">
+                    <label for="body">Body</label>
+                    <textarea
+                      class="form-control"
+                      id="body"
+                      rows="3"
+
+                      [formControlName]="'body'"
+                      required
+                    ></textarea>
+                    <div
+                      class="text-danger"
+                      [ngClass]="
+                      postCreateForm.get('body')?.invalid
+                        ? 'needs-validation'
+                        : 'invalid-feedback'
+                    "
+                    >
+                      Please provide a body.
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-3">
+                    Save Changes
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
