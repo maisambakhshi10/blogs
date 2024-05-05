@@ -12,7 +12,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SinglePostComponent {
 
-  postId!: number | undefined;
+  postId?: string;
   singlePost?: Post;
 
   @ViewChild('deleteConfirmationModal') deleteConfirmationModal: any;
@@ -21,20 +21,20 @@ export class SinglePostComponent {
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private router: Router, private modalService: NgbModal) {
 
     this.activatedRoute.params.subscribe(param => {
-      this.postId = +param['id']
-      console.log(this.postId)
+      this.postId = param['id']
       this.postService.getSinglePost(this.postId).subscribe(single => {
+        console.log(single)
         this.singlePost = single
         console.log(this.singlePost)
       });
     })
   }
 
-  navigateToEdit(id?: number) {
+  navigateToEdit(id?: string) {
     this.router.navigate(['post/edit', id])
   }
 
-  openDeleteModal(id: number | undefined): void {
+  openDeleteModal(id: string | undefined): void {
     this.postId = id;
     this.modalService.open(this.deleteConfirmationModal)
   }

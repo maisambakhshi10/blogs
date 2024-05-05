@@ -11,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PostEditComponent implements OnInit {
 
-  postId!: number;
+  postId!: string;
   post?: Post;
 
   postForm: FormGroup;
@@ -21,7 +21,7 @@ export class PostEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(param => {
-      this.postId = +param['id'];
+      this.postId = param['id'];
     });
 
 

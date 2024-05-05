@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
@@ -9,50 +9,31 @@ import { Post } from '../../models/post/post.model';
 })
 export class PostService {
 
+  private apiUrl = 'http://localhost:3000/posts';
+
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>('/assets/data.json');
+    return this.http.get<Post[]>(`${this.apiUrl}`);
   }
 
-  getSinglePost(id: number): Observable<Post | undefined> {
-    return this.getPosts().pipe(
-      map(posts => posts.find(post => post.id === id))
-    )
+  getSinglePost(id?: string): Observable<Post> {
+    return this.http.get<Post>(`${this.apiUrl}/${id}`);
   }
 
 
   submitPostData(post: Post) {
-    return this.getPosts().pipe(
-      map(posts => {
-        const index = posts.findIndex(p => p.id === post.id);
-        if (index !== -1) {
-          posts[index] = post;
-          return posts;
-        } else {
-          throw new Error('Post not found');
-        }
-      }),
-      catchError(error => {
-        return throwError(error);
-      }),
-      map(updatedPosts => {
-        console.log(updatedPosts)
-        return this.http.put<void>('/assets/data.json', updatedPosts);
-      })
-    );
+    return this.http.put<Post>(`${this.apiUrl}/${post.id}`, post);
   }
 
-  deletePost(postId: number): Observable<void> {
-    return this.getPosts().pipe(
-      switchMap(posts => {
-        const filteredPosts = posts.filter(post => post.id !== postId);
-        return this.http.put<void>('/assets/data.json', filteredPosts);
-      }),
-      catchError(error => {
-        return throwError(error);
-      })
-    );
+  deletePost(postId: string): Observable<Post> {
+    return this.http.delete<Post>(`${this.apiUrl}/${postId}`).pipe(
+      catchError (this.handleError) 
+      )
   }
 
+
+  private handleError(err: HttpErrorResponse): Observable<never> {
+    return throwError(() => err);
+  }
 }
