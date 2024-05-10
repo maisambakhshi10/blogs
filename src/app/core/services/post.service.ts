@@ -13,10 +13,6 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}`);
-  }
-
   getSinglePost(id?: string): Observable<Post> {
     return this.http.get<Post>(`${this.apiUrl}/${id}`);
   }

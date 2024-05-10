@@ -1,3 +1,4 @@
+
 export interface Post {
     id: string;
     img: string;
@@ -5,4 +6,7 @@ export interface Post {
     body: string;
     date: string;
     user: string;
+}
+export interface PostsList {
+    posts: Post[]
 }

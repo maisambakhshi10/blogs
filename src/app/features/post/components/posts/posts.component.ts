@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { PostService } from '../../../../core/services/post.service';
-import { Post } from '../../../../models/post/post.model';
+import { Post, PostsList } from '../../../../models/post/post.model';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { initPosts } from '../../../../store/posts.actions';
+import {  selectPosts } from '../../../../store/posts.selectors';
+import { AppState, PostsState } from '../../../../store/post.reducer';
 
 @Component({
   selector: 'app-posts',
@@ -9,18 +14,16 @@ import { Post } from '../../../../models/post/post.model';
 })
 export class PostsComponent {
 
+  posts$: Observable<any>;
 
-  posts: Post[] = [];
+  number$: Observable<number>;
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private store: Store<AppState>) {
+    this.store.dispatch(initPosts());
   }
-
+  
   ngOnInit(): void {
-
-    this.postService.getPosts().subscribe(e => {
-      this.posts = e;
-      console.log(this.posts)
-    });
+    this.posts$ = this.store.select(selectPosts);
   }
 
 }

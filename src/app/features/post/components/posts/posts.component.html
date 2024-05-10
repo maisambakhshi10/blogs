@@ -1,12 +1,9 @@
 <div class="container">
+  <ng-container *ngIf="posts$">
   <div class="row mt-n5">
-    <div *ngFor="let post of posts" class="col-md-6 col-lg-4 mt-5 wow fadeInUp">
-      <app-post [singlePost]="post"></app-post>
+      <div *ngFor="let post of posts$ |async" class="col-md-6 col-lg-4 mt-5 wow fadeInUp">
+        <app-post [singlePost]="post"></app-post>
     </div>
   </div>
-  <div
-    class="row mt-6 wow fadeInUp"
-    data-wow-delay=".6s"
-    style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp"
-  ></div>
+</ng-container>
 </div>
