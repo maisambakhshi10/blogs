@@ -3,6 +3,8 @@ import { PostService } from '../../../../core/services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../../../../models/post/post.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { updatePost } from '../../../../store/posts.actions';
 
 @Component({
   selector: 'app-post-edit',
@@ -16,7 +18,12 @@ export class PostEditComponent implements OnInit {
 
   postForm: FormGroup;
 
-  constructor(private postService: PostService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(
+    private postService: PostService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router,
+    private store: Store
+  ) {
   }
 
   ngOnInit(): void {
@@ -48,13 +55,8 @@ export class PostEditComponent implements OnInit {
         user: this.post?.user
       };
 
-      this.postService.submitPostData(postDataWithId).subscribe(() => {
+      this.store.dispatch(updatePost(postDataWithId))
 
-        this.router.navigate(['/post/details/', this.post?.id]);
-
-      }, error => {
-        console.error('Error submitting post data:', error);
-      });
     }
   }
 }
