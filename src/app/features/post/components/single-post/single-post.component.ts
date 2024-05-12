@@ -1,24 +1,33 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../../../../models/post/post.model';
 import { PostService } from '../../../../core/services/post.service';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { State, Store } from '@ngrx/store';
+import { deletePost } from '../../../../store/posts.actions';
+import { AppState, PostsState } from '../../../../store/post.reducer';
 
 @Component({
   selector: 'app-single-post',
   templateUrl: './single-post.component.html',
   styleUrl: './single-post.component.scss'
 })
-export class SinglePostComponent {
+export class SinglePostComponent implements OnInit{
 
   postId?: string;
-  singlePost?: Post;
+  singlePost: Post;
 
   @ViewChild('deleteConfirmationModal') deleteConfirmationModal: any;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private router: Router, private modalService: NgbModal) {
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private postService: PostService, 
+    private router: Router, 
+    private modalService: NgbModal,
+    private store: Store<AppState>,
+  ) {
 
     this.activatedRoute.params.subscribe(param => {
       this.postId = param['id']
@@ -26,6 +35,9 @@ export class SinglePostComponent {
         this.singlePost = single
       });
     })
+  }
+
+  ngOnInit(): void {
   }
 
   navigateToEdit(id?: string) {
@@ -37,12 +49,9 @@ export class SinglePostComponent {
     this.modalService.open(this.deleteConfirmationModal)
   }
 
-  deletePost(postId: any): void {
-
-    this.postService.deletePost(postId).subscribe(e => {
-      this.modalService.dismissAll()
-      this.router.navigate(['/posts']);
-    });
+  deletePost(postId: string): void {
+    this.store.dispatch(deletePost({id: postId}));
+    this.modalService.dismissAll();
   }
 
 }

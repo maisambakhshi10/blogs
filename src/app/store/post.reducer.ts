@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { loadPosts, updatePostSuccess } from "./posts.actions";
+import { deletePostSuccess, loadPosts, updatePostSuccess, updatePost } from './posts.actions';
 import { Post } from "../models/post/post.model";
 
 
@@ -34,5 +34,20 @@ export interface AppState {
         ...state,
         posts: updatedPosts
       }
+    }),
+    on(deletePostSuccess, (state, action) => {
+
+      const updatedPost = state.posts.filter(post => {
+        if(post.id !== action.id) {
+          return post;
+        }
+        return post;
+      })
+
+      return  {
+        ...state,
+        updatePost
+      }
+
     })
   );
