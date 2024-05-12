@@ -2,11 +2,12 @@
   "posts": [
     {
       "id": "3",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
       "title": "Post Title 3",
       "body": "Fusce volutpat lorem sit amet libero ultrices, non interdum purus fermentum. Sed tempus mauris eu felis luctus dictum.",
       "date": "2024-04-22",
-      "user": "User 3"
+      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
+      "user": "User 3",
+      "type": "[UPDATE post] init"
     },
     {
       "id": "6",
@@ -26,11 +27,12 @@
     },
     {
       "id": "9",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
-      "title": "Post Title 9",
-      "body": "Integer euismod velit id augue maximus, a ultricies ligula consectetur. Vestibulum lacinia ex vitae augue bibendum, quis venenatis libero dignissim.",
+      "title": "asdf",
+      "body": "asdfasdf",
       "date": "2024-04-28",
-      "user": "User 9"
+      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
+      "user": "User 9",
+      "type": "[UPDATE post] init"
     },
     {
       "id": "10",
