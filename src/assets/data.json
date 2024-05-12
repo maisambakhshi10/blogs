@@ -2,11 +2,12 @@
   "posts": [
     {
       "id": "2",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
-      "title": "Post Title 2",
-      "body": "Praesent vel nisl quis ligula vehicula vulputate. Quisque commodo urna eget enim eleifend, ac aliquet nibh consequat.",
+      "title": "Post Title 2jj",
+      "body": "Praesent vel nisl quis ligula vehicula vulputate. Quisque commodo urna eget enim eleifend, ac aliquet nibh consequat.2jj",
       "date": "2024-04-21",
-      "user": "User 2"
+      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
+      "user": "User 2",
+      "type": "[UPDATE post] init"
     },
     {
       "id": "3",
@@ -42,11 +43,12 @@
     },
     {
       "id": "7",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
-      "title": "Post Title 7",
-      "body": "Curabitur mollis est a sem volutpat, id efficitur nunc fringilla. Nam ac ligula id nisi pretium vestibulum.",
+      "title": "Post Title 70",
+      "body": "Curabitur mollis est a sem volutpat, id efficitur nunc fringilla. Nam ac ligula id nisi pretium vestibulum.0",
       "date": "2024-04-26",
-      "user": "User 7"
+      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
+      "user": "User 7",
+      "type": "[UPDATE post] init"
     },
     {
       "id": "8",

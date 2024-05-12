@@ -23,9 +23,7 @@ export class SinglePostComponent {
     this.activatedRoute.params.subscribe(param => {
       this.postId = param['id']
       this.postService.getSinglePost(this.postId).subscribe(single => {
-        console.log(single)
         this.singlePost = single
-        console.log(this.singlePost)
       });
     })
   }
