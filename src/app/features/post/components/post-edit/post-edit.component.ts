@@ -5,6 +5,8 @@ import { Post } from '../../../../models/post/post.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { updatePost } from '../../../../store/posts.actions';
+import { AppState } from '../../../../store/post.reducer';
+import { selectPostById } from '../../../../store/posts.selectors';
 
 @Component({
   selector: 'app-post-edit',
@@ -22,19 +24,19 @@ export class PostEditComponent implements OnInit {
     private postService: PostService, 
     private activatedRoute: ActivatedRoute, 
     private router: Router,
-    private store: Store
+    private store: Store<AppState>
   ) {
-  }
 
-  ngOnInit(): void {
     this.activatedRoute.params.subscribe(param => {
       this.postId = param['id'];
     });
 
 
-    this.postService.getSinglePost(this.postId).subscribe(post => {
-      this.post = post;
-    });
+     this.store.select(selectPostById(this.postId)).subscribe(post => this.post = post);
+  }
+
+  ngOnInit(): void {
+
 
 
     this.postForm = new FormGroup({
