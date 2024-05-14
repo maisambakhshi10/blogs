@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { initPosts } from '../../../../store/posts.actions';
 import {  selectPosts } from '../../../../store/posts.selectors';
 import { AppState, PostsState } from '../../../../store/post.reducer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -18,12 +19,19 @@ export class PostsComponent {
 
   number$: Observable<number>;
 
-  constructor(private postService: PostService, private store: Store<AppState>) {
+  constructor(
+    private postService: PostService, 
+    private store: Store<AppState>,
+    private router: Router
+  ) {
     this.store.dispatch(initPosts());
   }
   
   ngOnInit(): void {
     this.posts$ = this.store.select(selectPosts);
+
+    console.log(this.router.config)
+
   }
 
 }

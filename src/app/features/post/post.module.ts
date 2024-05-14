@@ -6,6 +6,8 @@ import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './components/create/create.component';
+import { PostRoutingModule } from './routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,10 +23,9 @@ import { CreateComponent } from './components/create/create.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
-  exports: [
-    SinglePostComponent
+    RouterModule,
+    ReactiveFormsModule,
+    PostRoutingModule
   ]
 })
 export class PostModule { }

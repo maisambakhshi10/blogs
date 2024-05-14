@@ -7,7 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { PostModule } from './features/post/post.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { postsReducer } from './store/post.reducer';
@@ -24,7 +23,6 @@ import { PostsEffects } from './store/posts.effects';
   ],
   imports: [
     BrowserModule,
-    PostModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,

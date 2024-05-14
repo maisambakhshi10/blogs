@@ -41,7 +41,7 @@ export class SinglePostComponent implements OnInit{
   }
 
   navigateToEdit(id?: string) {
-    this.router.navigate(['post/edit', id])
+    this.router.navigate(['posts/edit', id])
   }
 
   openDeleteModal(id: string | undefined): void {

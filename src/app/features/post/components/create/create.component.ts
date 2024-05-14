@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
 
       this.postService.createPost(postDataWithId).subscribe(() => {
 
-        this.router.navigate(['/posts/']);
+        this.router.navigate(['/posts/list']);
 
       }, error => {
         console.error('Error submitting post data:', error);

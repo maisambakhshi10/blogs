@@ -1,38 +1,12 @@
 {
   "posts": [
     {
-      "id": "3",
-      "title": "Post Title 3",
-      "body": "Fusce volutpat lorem sit amet libero ultrices, non interdum purus fermentum. Sed tempus mauris eu felis luctus dictum.",
-      "date": "2024-04-22",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
-      "user": "User 3",
-      "type": "[UPDATE post] init"
-    },
-    {
-      "id": "6",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
-      "title": "Post Title 6",
-      "body": "Ut ac lorem nec nulla vehicula pharetra. Pellentesque vitae turpis nec nisi consectetur rutrum sit amet nec orci.",
-      "date": "2024-04-25",
-      "user": "User 6"
-    },
-    {
       "id": "8",
       "img": "https://dummyimage.com/600x400/000000/fff&text=test",
       "title": "Post Title 8",
       "body": "Phasellus id quam non sem laoreet fringilla. Cras euismod est vel libero posuere, a dictum sem pellentesque.",
       "date": "2024-04-27",
       "user": "User 8"
-    },
-    {
-      "id": "9",
-      "title": "asdf",
-      "body": "asdfasdf",
-      "date": "2024-04-28",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
-      "user": "User 9",
-      "type": "[UPDATE post] init"
     },
     {
       "id": "10",
@@ -44,17 +18,26 @@
     },
     {
       "id": "12",
-      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
       "title": "Post Title 12",
       "body": "Mauris eget lacus sit amet felis ullamcorper tempus. In egestas est quis dolor ultrices, at suscipit nunc fermentum.",
       "date": "2024-05-01",
-      "user": "User 12"
+      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
+      "user": "User 12",
+      "type": "[UPDATE post] init"
     },
     {
-      "id": "6",
+      "id": "99",
       "title": "asdf",
       "body": "asdf",
-      "date": "2024-05-05T06:02:10.571Z",
+      "date": "2024-05-14T08:29:50.418Z",
+      "img": "https://dummyimage.com/600x400/000000/fff&text=test",
+      "user": "test"
+    },
+    {
+      "id": "99",
+      "title": "324",
+      "body": "234234",
+      "date": "2024-05-14T08:30:42.389Z",
       "img": "https://dummyimage.com/600x400/000000/fff&text=test",
       "user": "test"
     }

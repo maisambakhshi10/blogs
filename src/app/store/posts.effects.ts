@@ -36,7 +36,7 @@ updatePostEffect = createEffect(() =>
         switchMap((post) => 
             this.http.put<Post>(`${this.localApiUrl}/${post.id}`, post).pipe(
                 map(response => {
-                    this.router.navigate(['/posts']);
+                    this.router.navigate(['/posts/list']);
                     return updatePostSuccess(response);
                 }),
                 catchError(error => {
@@ -55,7 +55,7 @@ deletePostEffect = createEffect(() =>
             const postId = payload.id;
             return this.http.delete<Post>(`${this.localApiUrl}/${postId}`).pipe(
                 map(response => {
-                    this.router.navigate(['/posts']);
+                    this.router.navigate(['/posts/list']);
                     return deletePostSuccess(response);
                 }),
                 catchError(error => {

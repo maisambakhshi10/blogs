@@ -17,7 +17,7 @@ export class PostComponent {
 
 
   goToSingle(single?: Post) {
-    this.router.navigate(['/post/details/', single?.id])
+    this.router.navigate(['posts/details/', single?.id])
   }
 
 }
