@@ -13,6 +13,7 @@ import { postsReducer } from './store/post.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './store/posts.effects';
+import { DeactivateGuard } from './features/post/deactivate-guard.service';
 
 
 
@@ -33,7 +34,7 @@ import { PostsEffects } from './store/posts.effects';
     StoreDevtoolsModule.instrument({})
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(), DeactivateGuard,
   ],
   bootstrap: [AppComponent]
 })

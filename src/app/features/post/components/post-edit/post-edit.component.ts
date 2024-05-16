@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { updatePost } from '../../../../store/posts.actions';
 import { AppState } from '../../../../store/post.reducer';
 import { selectPostById } from '../../../../store/posts.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-edit',
@@ -19,6 +20,15 @@ export class PostEditComponent implements OnInit {
   post?: Post;
 
   postForm: FormGroup;
+
+  hasUnsavedChanges: boolean = false;
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.hasUnsavedChanges) {
+      return confirm('You have unsaved changes. Do you really want to leave?');
+    }
+    return true;
+  }
 
   constructor(
     private postService: PostService, 

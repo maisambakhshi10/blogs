@@ -4,11 +4,14 @@ import { SinglePostComponent } from './components/single-post/single-post.compon
 import { PostsComponent } from './components/posts/posts.component';
 import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { CreateComponent } from './components/create/create.component';
+import { DeactivateGuard } from './deactivate-guard.service';
+import { resolved } from './post-resolver.service';
 
 const routes: Routes = [
     {
         path: 'list',
         component: PostsComponent,
+        resolve: {resolve: resolved}
     },
     {
         path: 'details/:id',
@@ -20,7 +23,8 @@ const routes: Routes = [
     },
     {
         path: 'edit/:id',
-        component: PostEditComponent
+        component: PostEditComponent,
+        canDeactivate: [DeactivateGuard] 
     }
    
 ];

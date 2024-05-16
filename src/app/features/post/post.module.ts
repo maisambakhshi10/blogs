@@ -26,6 +26,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ReactiveFormsModule,
     PostRoutingModule
-  ]
+  ],
+  providers: []
 })
 export class PostModule { }

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { initPosts } from '../../../../store/posts.actions';
 import {  selectPosts } from '../../../../store/posts.selectors';
 import { AppState, PostsState } from '../../../../store/post.reducer';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -22,9 +22,13 @@ export class PostsComponent {
   constructor(
     private postService: PostService, 
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.store.dispatch(initPosts());
+
+    this.route.data.subscribe(e => console.log(e))
+
   }
   
   ngOnInit(): void {

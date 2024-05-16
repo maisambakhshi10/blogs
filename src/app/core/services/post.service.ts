@@ -23,6 +23,10 @@ export class PostService {
     )
   }
 
+  getPostId(id: number) {
+    return {id: id};
+  }
+
 
   submitPostData(post: Post) {
     return this.http.put<Post>(`${this.apiUrl}/${post.id}`, post);
